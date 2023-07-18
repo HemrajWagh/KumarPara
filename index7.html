@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main7.css">
+</head>
+<body>
+
+<!-- <a href="https://rtsp.me/embed/Naif3492/"> -->
+
+<!-- <video id="video" src="http://http://210.16.95.15:8080" type="video/ogg; codecs=theora" width="704" height="480" autoplay="autoplay"/> -->
+<p><video style="border: 1px solid red;" id="video" src="http://210.16.95.15:8080" autoplay="autoplay" width="704" height="480"></video></p>
+<!-- <video style="border: 1px solid red;" id="video" src="http://210.16.95.15/Streaming/channels/101" autoplay="autoplay" width="704" height="480"></video> -->
+
+
+<!-- <title>VLC Mozilla plugin test page</title>
+    <body>
+    <embed type="application/x-vlc-plugin" pluginspage="http://www.videolan.org"
+       width="320"
+       height="240"
+       target="rtsp://122.169.99.11:554/user=KPAPPS&password=Admin@123&channel=1&stream=1.sdp?"
+       id="vlc" />
+    <script type="text/javascript">
+    var vlc = document.getElementById("vlc");
+    vlc.audio.toggleMute();
+</script> -->
+
+
+
+    <div class="frame"></div>
+    
+    <img src="/book.jpg" alt="book">
+
+    <section class="ex2">
+        <div class="mask">
+            <h1 class="hide">Stories</h1>
+        </div>
+        <div class="mask">
+            <!-- <p class="text1">A collection of short stories about UI/UX designers</p> -->
+        </div>
+        <div class="mask">
+            <p class="text2">that focuses on the struggles of designing interfaces</p>
+        </div>
+        <div class="mask">
+            <p class="text3">for a wide variety of clients.</p>
+        </div>
+    </section>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
+
+    <script>
+
+        let tl = gsap.timeline();
+        const textLines = document.querySelectorAll(".text1, .text2, .text3")
+
+        textLines.forEach(textLine => {
+            const split = new SplitType(textLine, {
+                types: "chars"
+            })
+        })
+
+        tl.to("img", {
+            clipPath: 'polygon(0 0, 100% 0, 100% 99%, 0 99%)',
+            scale: 1.1,
+            duration: 1.4
+        })
+        tl.to(".hide", {
+            duration: 1.4,
+            y: 0,
+            stagger: 0.1,
+            ease: "power2"
+        }, "-=1")
+        .from('.char', {
+            yPercent: -100,
+            stagger: 0.007,
+            ease: "power2.out"
+        }, ".6")
+        .to(".frame", {
+            opacity: 1,
+            scale: 1
+        }, "-=1.4")
+
+    </script>
+
+</body>
+</html>
